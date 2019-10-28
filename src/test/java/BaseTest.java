@@ -1,26 +1,24 @@
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 
-public class BaseTest {
-    private WebDriver driver;
+import org.testng.annotations.*;
 
-    @BeforeTest
-    public void beforeTest(){
-        driver = new ChromeDriver();
+
+public class BaseTest extends BasePage{
+
+    @BeforeSuite
+    public void beforeTest()
+    {
+        starDriver();
     }
 
-    @AfterTest
+    @AfterSuite
     public void tearDown(){
-        if(driver != null){
-            driver.close();
-            driver.quit();
+        if(getDriver() != null){
+            getDriver().close();
+            getDriver().quit();
         }
     }
 
-    public WebDriver getDriver(){
-        return  driver;
-    }
+
 
 }
