@@ -2,8 +2,13 @@ import org.openqa.selenium.WebDriver;
 
 import org.testng.annotations.*;
 
+import java.io.IOException;
+
 
 public class BaseTest extends BasePage{
+
+    public BaseTest() throws IOException {
+    }
 
     @BeforeSuite
     public void beforeTest()
@@ -14,8 +19,8 @@ public class BaseTest extends BasePage{
     @AfterSuite
     public void tearDown(){
         if(getDriver() != null){
-            getDriver().close();
-            getDriver().quit();
+            //getDriver().close();
+            //getDriver().quit();
         }
     }
 
